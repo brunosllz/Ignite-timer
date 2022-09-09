@@ -5,6 +5,14 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
 
+  div {
+    display: flex;
+    gap: 1rem;
+
+    align-items: center;
+    justify-content: center;
+  }
+
   nav {
     display: flex;
     gap: 0.5rem;
@@ -18,18 +26,27 @@ export const HeaderContainer = styled.header`
       align-items: center;
       cursor: pointer;
 
-      color: ${(props) => props.theme['gray-100']};
+      color: ${(props) => props.theme.colors.title};
 
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;
 
       &:hover {
-        border-bottom: 3px solid ${(props) => props.theme['green-500']};
+        border-bottom: 3px solid ${(props) => props.theme.colors.green};
       }
 
       &.active {
-        color: ${(props) => props.theme['green-500']};
+        color: ${(props) => props.theme.colors.green};
       }
     }
   }
+`
+export const ChangeThemeButton = styled.button`
+  background-color: transparent;
+  border: 0;
+
+  color: ${(props) => props.theme.colors.title};
+
+  padding: 0.5rem;
+  cursor: pointer;
 `

@@ -1,7 +1,9 @@
 import 'styled-components'
-import { defaultTheme } from '../styles/theme/default'
+import light from '../styles/theme/light'
 
-type ThemeType = typeof defaultTheme
+export interface DefaultTheme {}
+
+type ThemeType = typeof light
 
 declare module 'styled-components' {
   export interface DefaultTheme extends ThemeType {}

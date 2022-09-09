@@ -31,7 +31,7 @@ const BaseCountDownButton = styled.button`
 
   cursor: pointer;
 
-  color: ${(props) => props.theme['gray-100']};
+  color: ${(props) => props.theme.colors.text};
 
   &:disabled {
     cursor: not-allowed;
@@ -40,17 +40,17 @@ const BaseCountDownButton = styled.button`
 `
 
 export const StartCountDownButton = styled(BaseCountDownButton)`
-  background-color: ${(props) => props.theme['green-500']};
+  background-color: ${(props) => props.theme.colors.green};
 
   &:not(:disabled):hover {
-    background-color: ${(props) => props.theme['green-700']};
+    background-color: ${(props) => props.theme.colors['green-dark']};
   }
 `
 
 export const StopCountDownButton = styled(BaseCountDownButton)`
-  background-color: ${(props) => props.theme['red-500']};
+  background-color: ${(props) => props.theme.colors.red};
 
   &:not(:disabled):hover {
-    background-color: ${(props) => props.theme['red-700']};
+    background-color: ${(props) => props.theme.colors['red-dark']};
   }
 `
