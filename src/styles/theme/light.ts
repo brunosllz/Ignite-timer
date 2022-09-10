@@ -24,8 +24,3 @@ export default {
     yellow: '#FBA94C',
   },
 }
-
-// DAE6E2
-// 323238
-// 121214
-// 09090A

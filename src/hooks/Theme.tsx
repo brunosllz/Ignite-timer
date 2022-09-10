@@ -1,9 +1,11 @@
-import { createContext, ReactNode, useState, useContext } from 'react'
+import { createContext, ReactNode, useContext } from 'react'
 import { ThemeProvider as ThemeProviderStyledComponents } from 'styled-components'
 import light from '../styles/theme/light'
 import dark from '../styles/theme/dark'
+import { usePersistedState } from './usePersistedState'
 
 type ThemeName = typeof light
+
 interface ThemeContextType {
   theme: ThemeName
   toggleTheme: () => void
@@ -32,7 +34,7 @@ interface ThemeProviderProps {
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType)
 
 function ThemeProvider({ children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState(light)
+  const [theme, setTheme] = usePersistedState('@ignite-timer:theme', light)
 
   function toggleTheme() {
     setTheme(theme.title === 'light' ? dark : light)
