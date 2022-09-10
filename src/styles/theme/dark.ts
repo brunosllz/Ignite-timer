@@ -9,9 +9,9 @@ export default {
     label: '#8D8D99',
     placeholder: '#7C7C8A',
 
-    // 'gray-700': '#29292E',
+    elements: '#29292E',
+    'elements-dark': '#202024',
     divider: '#323238',
-    elements: '#202024',
     background: '#121214',
 
     'green-light': '#00B37E',

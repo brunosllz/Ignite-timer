@@ -1,17 +1,12 @@
-import {
-  createContext,
-  ReactNode,
-  useEffect,
-  useState,
-  useContext,
-} from 'react'
+import { createContext, ReactNode, useState, useContext } from 'react'
 import { ThemeProvider as ThemeProviderStyledComponents } from 'styled-components'
 import light from '../styles/theme/light'
+import dark from '../styles/theme/dark'
 
-type ThemeName = 'light' | 'dark' | string
+type ThemeName = typeof light
 interface ThemeContextType {
   theme: ThemeName
-  setTheme: (name: ThemeName) => void
+  toggleTheme: () => void
 }
 interface ThemeProviderProps {
   children: ReactNode
@@ -36,30 +31,16 @@ interface ThemeProviderProps {
 
 const ThemeContext = createContext<ThemeContextType>({} as ThemeContextType)
 
-function ThemeProvider({ initialTheme, children }: ThemeProviderProps) {
-  const [theme, setTheme] = useState('')
+function ThemeProvider({ children }: ThemeProviderProps) {
+  const [theme, setTheme] = useState(light)
 
-  // function rawSetTheme(theme: string) {
-  //   const root = window.document.documentElement
-  //   const isDark = theme === 'dark'
-
-  //   root.classList.remove(isDark ? 'light' : 'dark')
-  //   root.classList.add(theme)
-
-  //   localStorage.setItem('@ignite-timer:colorTheme', theme)
-  // }
-
-  // if (initialTheme) {
-  //   rawSetTheme(initialTheme)
-  // }
-
-  // useEffect(() => {
-  //   rawSetTheme(theme)
-  // }, [theme])
+  function toggleTheme() {
+    setTheme(theme.title === 'light' ? dark : light)
+  }
 
   return (
-    <ThemeProviderStyledComponents theme={light}>
-      <ThemeContext.Provider value={{ theme, setTheme }}>
+    <ThemeProviderStyledComponents theme={theme}>
+      <ThemeContext.Provider value={{ theme, toggleTheme }}>
         {children}
       </ThemeContext.Provider>
     </ThemeProviderStyledComponents>

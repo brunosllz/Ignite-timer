@@ -16,7 +16,11 @@ export const HomeContainer = styled.main`
   }
 `
 
-const BaseCountDownButton = styled.button`
+interface StopCountDownButtonProps {
+  isDark?: boolean
+}
+
+const BaseCountDownButton = styled.button<StopCountDownButtonProps>`
   width: 100%;
   border: 0;
   padding: 1rem;
@@ -31,7 +35,8 @@ const BaseCountDownButton = styled.button`
 
   cursor: pointer;
 
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme, isDark }) =>
+    isDark ? theme.colors.text : theme.colors.white};
 
   &:disabled {
     cursor: not-allowed;

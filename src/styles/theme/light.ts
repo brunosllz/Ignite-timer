@@ -4,15 +4,15 @@ export default {
   colors: {
     white: '#FFFFFF',
 
-    title: '#E1E1E6',
-    text: '#C4C4CC',
+    title: '#121214',
+    text: '#323238',
     label: '#8D8D99',
-    placeholder: '#7C7C8A',
+    placeholder: '#505059',
 
-    elements: '#29292E',
-    divider: '#323238',
-    'elements-dark': '#202024',
-    background: '#121214',
+    elements: '#DAE6E2',
+    'elements-dark': '#EAF6F2',
+    divider: '#E4ECE9',
+    background: '#54B397',
 
     'green-light': '#00B37E',
     green: '#00875F',
