@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const HistoryContainer = styled.main`
   flex: 1;
   padding: 3.5rem;
-
   display: flex;
   flex-direction: column;
 
@@ -15,9 +14,7 @@ export const HistoryContainer = styled.main`
 
 export const HistoryList = styled.div`
   flex: 1;
-  overflow: auto;
   margin-top: 2rem;
-  max-height: 28.8rem;
 
   table {
     width: 100%;
@@ -40,6 +37,30 @@ export const HistoryList = styled.div`
       &:last-child {
         border-top-right-radius: 8px;
         padding-right: 1.5rem;
+      }
+    }
+
+    thead,
+    tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
+
+    tbody {
+      width: 100%;
+      display: block;
+      height: 407px;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        width: 6px;
+        padding-right: 10px;
+        z-index: 50;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: ${(props) => props.theme.colors.placeholder};
+        border-radius: 99999px;
       }
     }
 
