@@ -7,11 +7,13 @@ import { ptBR } from 'date-fns/locale'
 export function History() {
   const { cycles } = useContext(CyclesContext)
 
+  const haveCycles = cycles.length > 0
+
   return (
     <HistoryContainer>
       <h1>Meu histórico</h1>
 
-      <HistoryList>
+      <HistoryList haveCycles={haveCycles}>
         <table>
           <thead>
             <tr>

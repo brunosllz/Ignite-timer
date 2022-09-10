@@ -12,7 +12,11 @@ export const HistoryContainer = styled.main`
   }
 `
 
-export const HistoryList = styled.div`
+interface HistoryListProps {
+  haveCycles?: boolean
+}
+
+export const HistoryList = styled.div<HistoryListProps>`
   flex: 1;
   margin-top: 2rem;
 
@@ -20,6 +24,13 @@ export const HistoryList = styled.div`
     width: 100%;
     border-collapse: collapse;
     min-width: 600px;
+
+    thead,
+    tbody tr {
+      display: table;
+      width: 100%;
+      table-layout: fixed;
+    }
 
     th {
       background-color: ${(props) => props.theme.colors.divider};
@@ -31,6 +42,7 @@ export const HistoryList = styled.div`
 
       &:first-child {
         border-top-left-radius: 8px;
+        width: 50%;
         padding-left: 1.5rem;
       }
 
@@ -40,18 +52,13 @@ export const HistoryList = styled.div`
       }
     }
 
-    thead,
-    tbody tr {
-      display: table;
-      width: 100%;
-      table-layout: fixed;
-    }
-
     tbody {
       width: 100%;
       display: block;
-      height: 407px;
+      height: 25rem;
       overflow: auto;
+      background-color: ${({ theme, haveCycles }) =>
+        haveCycles ? '' : theme.colors.elements};
 
       &::-webkit-scrollbar {
         width: 6px;
