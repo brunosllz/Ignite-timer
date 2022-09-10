@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 import { Timer, Scroll, Sun, Moon } from 'phosphor-react'
 import LogoIgnite from '../../assets/logo-ignite.svg'
 import { useTheme } from '../../hooks/Theme'
+import { Tooltip } from '../Tooltip'
 
 export function Header() {
   const { toggleTheme, theme } = useTheme()
@@ -18,9 +19,12 @@ export function Header() {
       </div>
 
       <nav>
-        <NavLink to="/" title="Timer">
-          <Timer size={24} />
-        </NavLink>
+        <Tooltip title="Timer">
+          <NavLink to="/">
+            <Timer size={24} />
+          </NavLink>
+        </Tooltip>
+
         <NavLink to="/history" title="Histórico">
           <Scroll size={24} />
         </NavLink>
