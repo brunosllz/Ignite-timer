@@ -13,6 +13,7 @@ export interface Cycle {
 interface CyclesState {
   cycles: Cycle[]
   activeCycleId: string | null
+  valueInputMinutesAmount: number | null
 }
 
 export function cycleReducer(state: CyclesState, action: any) {

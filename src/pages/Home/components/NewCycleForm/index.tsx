@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import {
   FormContainer,
   MinutesAmountContainer,
@@ -10,40 +10,29 @@ import { CyclesContext } from '../../../../context/CyclesContext'
 
 import { Plus, Minus } from 'phosphor-react'
 export function NewCycleForm() {
-  const [minutesAmount, setMinutesAmount] = useState<number | null>(null)
-  const { activeCycle } = useContext(CyclesContext)
+  const {
+    activeCycle,
+    DecrementMinutesAmount,
+    IncrementMinutesAmount,
+    valueInputAmountMinutes,
+  } = useContext(CyclesContext)
   const { register, setValue } = useFormContext()
 
-  function handleIncrementMinutesAmount() {
-    setMinutesAmount((state) => {
-      if (state === 60) {
-        return 60
-      }
-
-      return state! + 5
-    })
-  }
-
   function handleDecrementMinutesAmount() {
-    setMinutesAmount((state) => {
-      if (state === 0) {
-        return 0
-      }
-      if (state === null) {
-        return 0
-      }
-      return state! - 5
-    })
+    DecrementMinutesAmount()
   }
-  console.log(minutesAmount)
+
+  function handleIncrementMinutesAmount() {
+    IncrementMinutesAmount()
+  }
 
   useEffect(() => {
     function changeMinutesAmountValue() {
-      setValue('minutesAmount', minutesAmount)
+      setValue('minutesAmount', valueInputAmountMinutes)
     }
 
     changeMinutesAmountValue()
-  }, [minutesAmount, setValue])
+  }, [setValue, valueInputAmountMinutes])
 
   return (
     <FormContainer>

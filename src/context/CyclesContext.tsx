@@ -19,14 +19,18 @@ interface CreateCycleData {
 }
 
 interface CyclesContextData {
+  cycles: Cycle[]
   activeCycle: Cycle | undefined
   activeCycleId: string | null
   amountSecondsPassed: number
+  valueInputAmountMinutes: number | null
   markCurrentCycleAsFinished: () => void
   setSecondsPassed: (second: number) => void
   createNewCycle: (data: CreateCycleData) => void
   interruptCurrentCycle: () => void
-  cycles: Cycle[]
+  IncrementMinutesAmount: () => void
+  DecrementMinutesAmount: () => void
+  ResetMinutesAmount: () => void
 }
 
 interface CyclesContextProviderProps {
@@ -43,6 +47,7 @@ export function CyclesContextProvider({
     {
       cycles: [],
       activeCycleId: null,
+      valueInputMinutesAmount: null,
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
@@ -70,6 +75,9 @@ export function CyclesContextProvider({
 
     return 0
   })
+  const [valueInputAmountMinutes, setValueInputAmountMinutes] = useState<
+    null | number
+  >(null)
 
   function createNewCycle(data: CreateCycleData) {
     const id = String(new Date().getTime())
@@ -97,6 +105,36 @@ export function CyclesContextProvider({
     setAmountSecoundsPassed(seconds)
   }
 
+  function IncrementMinutesAmount() {
+    setValueInputAmountMinutes((state) => {
+      if (state === 60) {
+        return 60
+      }
+
+      return state! + 5
+    })
+  }
+
+  function DecrementMinutesAmount() {
+    setValueInputAmountMinutes((state) => {
+      if (state === 0) {
+        return 0
+      }
+
+      if (state === null) {
+        return 0
+      }
+
+      return state! - 5
+    })
+  }
+
+  function ResetMinutesAmount() {
+    setValueInputAmountMinutes((state) => {
+      return (state = null)
+    })
+  }
+
   useEffect(() => {
     const stateJSON = JSON.stringify(cyclesState)
 
@@ -114,6 +152,10 @@ export function CyclesContextProvider({
         createNewCycle,
         interruptCurrentCycle,
         cycles,
+        DecrementMinutesAmount,
+        IncrementMinutesAmount,
+        valueInputAmountMinutes,
+        ResetMinutesAmount,
       }}
     >
       {children}

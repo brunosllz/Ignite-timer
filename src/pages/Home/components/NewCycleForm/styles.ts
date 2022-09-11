@@ -46,7 +46,7 @@ export const MinutesAmountContainer = styled.div`
   flex-direction: row;
   border-bottom: 2px solid ${(props) => props.theme.colors.placeholder};
 
-  &:focus-within {
+  &::focus-within {
     border-color: ${(props) => props.theme.colors.green};
   }
 
