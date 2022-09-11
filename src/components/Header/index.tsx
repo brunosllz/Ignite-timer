@@ -24,10 +24,11 @@ export function Header() {
             <Timer size={24} />
           </NavLink>
         </Tooltip>
-
-        <NavLink to="/history" title="Histórico">
-          <Scroll size={24} />
-        </NavLink>
+        <Tooltip title="Histórico">
+          <NavLink to="/history">
+            <Scroll size={24} />
+          </NavLink>
+        </Tooltip>
       </nav>
     </HeaderContainer>
   )
