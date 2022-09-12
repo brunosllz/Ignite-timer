@@ -14,6 +14,9 @@ export default {
     divider: '#323238',
     background: '#121214',
 
+    tooltip: '#121214',
+    'tooltip-text': '#C4C4CC',
+
     'green-light': '#00B37E',
     green: '#00875F',
     'green-dark': '#015F43',

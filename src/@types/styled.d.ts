@@ -12,6 +12,9 @@ declare module 'styled-components' {
       label: string
       placeholder: string
 
+      tooltip: string
+      'tooltip-text': string
+
       elements: string
       'elements-dark': string
       divider: string
