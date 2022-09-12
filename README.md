@@ -13,7 +13,7 @@
 
 <br/>
 
-![](https://github.com/brunosllz/Platform_lab/blob/main/.github/cover.png)
+![](https://github.com/brunosllz/Ignite-timer/blob/main/src/assets/Cover.png)
 
 ## [](https://github.com/brunosllz/Platform_lab#--sobre-o-projeto) 💻 Sobre o projeto
 
